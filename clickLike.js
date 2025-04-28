@@ -124,8 +124,8 @@
                         setTimeout(function() {
                             window.close(); // 关闭当前标签页
                             console.log('当前标签页已关闭');
-                        }, 5000); // 延迟 5 秒
-                    }, 5000); // 延迟 5 秒
+                        }, 2000); // 延迟 2 秒
+                    }, 2000); // 延迟 2 秒
                 } catch (err) {
                     console.error("出错啦：", err.message);
                 }
@@ -253,3 +253,7 @@
     // 执行主函数
     main();
 })();
+
+
+
+
