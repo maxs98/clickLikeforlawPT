@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         模拟请求并获取文章ID和打开链接
+// @name         联通普法平台点赞
 // @namespace    http://tampermonkey.net/
 // @version      1.00
 // @description  通过POST请求获取文章ID数组，并根据ID打开链接
@@ -116,14 +116,16 @@
             console.log("脚本在点赞页面执行");
             (async () => {
                 try {
-                    const selector = "#ant-layout-content > div.review-process-layout-content > div.review-process-layout-content-left > div > div.review-content-bottom";
+                    const selector = "#ant-layout-content > div.review-process-layout-content > div.review-process-layout-content-left > div > div.review-content-bottom > div:nth-child(1)";
                     const el = await waitForElement(selector);
                     setTimeout(function() {
-                    el.click();
-                    console.log("点击成功");
-                    window.close();
-                }, 5000); // 延迟 5 秒
-                   
+                        el.click();
+                        console.log('按钮已点击');
+                        setTimeout(function() {
+                            window.close(); // 关闭当前标签页
+                            console.log('当前标签页已关闭');
+                        }, 5000); // 延迟 5 秒
+                    }, 5000); // 延迟 5 秒
                 } catch (err) {
                     console.error("出错啦：", err.message);
                 }
